@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="angular.min.js"></script>
+<script>
+var app = angular.module('myApp', []);
+app.controller('loginctrl', function($scope,$rootScope) {
+$scope.login=true;
+ $rootScope.home = false;
+     $scope.userName=''; 
+     $scope.pwd='';
+$scope.toggle=function(){
+   if($scope.userName=="srec" && $scope.pwd=="srec"){
+.
+    $rootScope.home=true;
+    $scope.login=false;
+  }  }
+});
+app.controller('welctrl',function($scope){
+});
+</script>
+<body>
+<style>
+body
+{
+background-image:url("file:///C:/Documents%20and%20Settings/Student/Desktop/srec.jpg");
+}
+</style>
+<div  ng-controller="loginctrl" ng-show="login">
+<br>
+<br>
+<br>
+<br>
+<center><p style="color:Black;">LOGIN FORM</p><center>
+</style>
+<center>User Name: <input type="text" ng-model="userName"><br>
+<br>
+password: <input type="password" ng-model="pwd"><br>
+<br>
+<button ng-click="toggle()">LOGIN</button></center>
+<button ng-click="toggle()">LOGOUT</button></center>
+</div>
+<div ng-controller="welctrl" ng-show="home">
+<p >
+<br>
+<br>
+<br>
+<br>
+<center><h2>WELCOME TO SREC<h2></center>
+<center><h3>{{msg}}</h3></center>
+</p>
+</div>
+</body>
+</html>

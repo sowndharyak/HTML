@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="angular.min.js"></script>
+<script>
+var app = angular.module('myApp', []);
+app.service('serve',function(){
+     this.check=function(x,y){
+      if(x == "faesa" && y=="keerthu")
+   {     return true; }  else { return false; }
+}
+});
+app.controller('loginctrl', function($scope,$rootScope,serve) {
+  $scope.login=true;
+   $rootScope.home = false;
+   $scope.userName='';
+   $scope.pwd='';
+   $scope.toggle=function(){
+var valid= serve.check($scope.userName, $scope.pwd);
+if(valid == true) {
+   $rootScope.home = true;
+$rootScope.login = false;
+}
+
+     }
+});
+app.controller('welctrl',function($scope){
+});
+</script>
+
+<body>
+<style>
+body{
+background-image:url("file:///C:/Documents%20and%20Settings/Student/Desktop/mean%20stack/567.jpg");
+}
+</style>
+<h1 style="color:white; font-family:algerian;font-size:75;text-align:center"><b>LEARNFREE ACADEMY</b></h1>
+<h2 style="color:white; font-family:algerian;font-size:50;text-align:center"><b>SIGNUP</b></h2>
+
+
+<div  ng-controller="loginctrl" ng-show="login">
+
+<center>User Name: <input type="text" ng-model="userName"></center><br>
+<center>password: <input type="password" ng-model="pwd"></center><br>
+<br>
+<center><button ng-click="toggle()">submit</button></center>
+</div>
+
+
+<div ng-controller="welctrl" ng-show="home">
+<p >
+<center><h2 style=color:white>welcome to home page  <h2></center>
+</p>
+</div>
+
+
+</body>
+</html>
