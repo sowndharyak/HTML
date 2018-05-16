@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm()
+{
+var x =  document.forms["myform"]["fname"]["lname"].value;
+if(x==""||y=="")
+{
+alert("must be filled");
+return false;
+}
+}
+</script>
+</head>
+<body>
+<form name="myForm" 
+
+onsubmit="return validateForm()" method="post">
+name:<input type="text" name="fname">
+<br>
+lname:<input type="text"name="lname">
+<button type="submit" value="submit">ok</button>
+</form>
+</body>
+</html> 
